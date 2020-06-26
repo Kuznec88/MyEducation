@@ -1,11 +1,13 @@
 
 public class Cat
 {
+
     private double originWeight;
     private double weight;
 
     private double minWeight;
     private double maxWeight;
+    private double mealCount; // создаем переменную для счетчика еды
 
     public Cat()
     {
@@ -14,8 +16,13 @@ public class Cat
         minWeight = 1000.0;
         maxWeight = 9000.0;
 
-    }
 
+    }
+    public void pee() // создаем метод
+    {
+        weight = weight - 20; // при вызове метода вес кошака меняется на -20
+        System.out.println("Agghhh"); // печатаем в консоль эмоции кошки
+    }
     public void meow()
     {
         weight = weight - 1;
@@ -25,6 +32,7 @@ public class Cat
     public void feed(Double amount)
     {
         weight = weight + amount;
+        mealCount += amount; // счетчик еды
     }
 
     public void drink(Double amount)
@@ -32,11 +40,22 @@ public class Cat
         weight = weight + amount;
     }
 
-    public Double getWeight()
+    public double getWeight()
     {
         return weight;
     }
-
+    public double mealCount() // метод по возврату съеденной еды
+    {
+        return mealCount;
+    }
+    static int catCount; // счетчик котов
+    {
+        catCount++;
+        if (weight < minWeight)
+            catCount--;
+        else if (weight > maxWeight)
+            catCount--;
+    }
     public String getStatus()
     {
         if(weight < minWeight) {
