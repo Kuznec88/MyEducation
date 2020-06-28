@@ -7,6 +7,8 @@ public class Loader {
         Cat manowar = new Cat(); // создали кота
         Cat rhcp = new Cat(); // создали кота
 
+
+
         Cat maffin = new Cat(); // создали кота
         System.out.println("Вес Маффина " + maffin.getWeight()); // получаем вес кота и выводим в консоль
         maffin.feed(9001.00 - maffin.getWeight()); // кормим ровно тем количеством корма + 1 чтобы кот взорвлся, без цикла
@@ -16,9 +18,9 @@ public class Loader {
 
         Cat ioko = new Cat(); // создали кота
         System.out.println("Вес Йоко " + ioko.getWeight()); // получаем вес и выводим в консоль
-        while (ioko.getWeight() >= 1000.0) { // цикл если вес кошки больше либо равен минимальному, кошка продолжала бы мяукать если бы не было break)
+        while (ioko.getStatus() != "Dead") { // кошка мяукает пока статус не будет деад, без break)
             ioko.meow(); // мяукает
-            System.out.println(ioko.getStatus()); // проверяем статус, при смерти перестает мяукать
+            System.out.println("Йоко " + ioko.getStatus()); // проверяем статус, при смерти перестает мяукать
 
 
             // 2 Задание
@@ -32,7 +34,7 @@ public class Loader {
             System.out.println("Кот рхчп за все время съел " + rhcp.mealCount() + " грамм корма");  // проверка кол-ва еды
             System.out.println("Всего котов создано " + Cat.catCount); // вызываем счетчик котов при помощи слова Cat
             System.out.println();
-            break;
+
         }
     }
 }

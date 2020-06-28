@@ -1,7 +1,7 @@
 
 public class Cat
 {
-
+    public static int catCount; // правильно понял что переменную для счетчика надо засунуть сюда?
     private double originWeight;
     private double weight;
 
@@ -15,8 +15,7 @@ public class Cat
         originWeight = weight;
         minWeight = 1000.0;
         maxWeight = 9000.0;
-
-
+        catCount++; // а сюда засунуть сам счетчик?
     }
     public void pee() // создаем метод
     {
@@ -48,14 +47,6 @@ public class Cat
     {
         return mealCount;
     }
-    static int catCount; // счетчик котов
-    {
-        catCount++;
-        if (weight < minWeight)
-            catCount--;
-        else if (weight > maxWeight)
-            catCount--;
-    }
     public String getStatus()
     {
         if(weight < minWeight) {
@@ -67,8 +58,11 @@ public class Cat
         else if(weight > originWeight) {
             return "Sleeping";
         }
-        else {
+        else{
             return "Playing";
         }
+
     }
+
 }
+
