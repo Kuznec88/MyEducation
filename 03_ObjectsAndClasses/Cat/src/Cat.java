@@ -1,6 +1,11 @@
 import java.util.Objects;
 
 public class Cat {
+
+    public static final int EYE_COUNT = 2; // задание 3.4
+    public static final double MIN_WEIGHT = 1000.0;
+    public static final double MAX_WEIGHT = 9000.0;
+
     public static int catCount; // правильно понял что переменную для счетчика надо засунуть сюда?
     private double originWeight;
     private double weight;
