@@ -14,7 +14,8 @@ public class Cat {
     private double maxWeight;
     private double mealCount; // создаем переменную для счетчика еды
 
-    public boolean isAlive = (weight <= maxWeight && weight >= minWeight); // здесь создал булеан проверяющий жива кошка или нет
+    public boolean isAlive = (weight <= maxWeight && weight >= minWeight);
+
 
     public Cat() {
         weight = 1500.0 + 3000.0 * Math.random();
@@ -32,7 +33,7 @@ public class Cat {
 
     public void meow() {
 
-        if (isAlive = true);{
+        if (weight <= maxWeight && weight >= minWeight) {
 
             weight = weight - 1;
 
@@ -42,42 +43,37 @@ public class Cat {
 
                 catCount--;
 
-                if (isAlive = false) {
-
-                    System.out.println("Кошка мертва"); // здесь поидее должна выводиться надпись, но т.к у нас метод войд, она не выводится
-                }
             }
         }
     }
 
         public void feed (Double amount) {
-            if (isAlive = true) {
+
+            if (isAlive) {
 
                 weight = weight + amount;
 
                 mealCount += amount; // счетчик еды
 
-                if (weight < maxWeight){
+                if (weight > maxWeight){
+
+                    isAlive = false;
 
                     catCount--;
 
-                    if (isAlive = false){
-
-                        System.out.println("Кошак мертв");
                     }
                 }
             }
-        }
 
-        public void drink (Double amount){
+        public void drink (Double amount) {
 
-        if (weight <= maxWeight && weight >= minWeight) {
+        if (isAlive) {
 
         weight = weight + amount;
 
-        mealCount += amount; // счетчик еды
+        if (weight > maxWeight){
 
-        if (weight < maxWeight){
+            isAlive = false;
 
             catCount--;
         }
@@ -93,16 +89,16 @@ public class Cat {
         }
         public String getStatus ()
         {
-            if (weight < minWeight) {
-                return "Dead";
-            } else if (weight > maxWeight) {
-                return "Exploded";
-            } else if (weight > originWeight) {
-                return "Sleeping";
-            } else {
-                return "Playing";
+                if (weight < minWeight) {
+                    return "Dead";
+                } else if (weight > maxWeight) {
+                    return "Exploded";
+                } else if (weight > originWeight) {
+                    return "Sleeping";
+                } else {
+                    return "Playing";
+                }
             }
         }
-    }
 
 

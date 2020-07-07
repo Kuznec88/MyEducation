@@ -23,14 +23,18 @@ public class Loader {
 
             // 2 Задание
             manowar.pee(); // вызываем метод, в консоль выводится "agghhh"
-            rhcp.feed(150.00); // кормим на 150 гр
-            rhcp.feed(200.00); //кормим + 200 гр
-            rhcp.pee(); // кошак писает несколько раз
-            rhcp.pee();
-            rhcp.pee();
-            rhcp.pee();
-            System.out.println("Кот рхчп за все время съел " + rhcp.mealCount() + " грамм корма");  // проверка кол-ва еды
-            System.out.println("Всего котов создано " + Cat.catCount); // вызываем счетчик котов при помощи слова Cat
+
+            while (rhcp.isAlive) {
+
+                rhcp.feed(150.00); // кормим на 150 гр
+
+                System.out.println("Кот рхчп за все время съел " + rhcp.mealCount() + " грамм корма");  // проверка кол-ва еды
+
+
+                rhcp.pee(); // кошак писает несколько раз
+                System.out.println("Всего котов создано " + Cat.catCount); // вызываем счетчик котов при помощи слова Cat
+
+            }
         }
     }
 }
