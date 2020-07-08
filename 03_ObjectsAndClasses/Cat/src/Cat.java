@@ -10,18 +10,14 @@ public class Cat {
     private double originWeight;
     private double weight;
 
-    private double minWeight;
-    private double maxWeight;
     private double mealCount; // создаем переменную для счетчика еды
 
-    public boolean isAlive = (weight <= maxWeight && weight >= minWeight);
+    public boolean isAlive = true;
 
 
     public Cat() {
         weight = 1500.0 + 3000.0 * Math.random();
         originWeight = weight;
-        minWeight = 1000.0;
-        maxWeight = 9000.0;
         catCount++; // а сюда засунуть сам счетчик?
     }
 
@@ -33,13 +29,13 @@ public class Cat {
 
     public void meow() {
 
-        if (weight <= maxWeight && weight >= minWeight) {
+        if (weight <= Cat.MAX_WEIGHT && weight >= Cat.MIN_WEIGHT) {
 
             weight = weight - 1;
 
             System.out.println("Meow");
 
-            if (weight < minWeight) {
+            if (weight < Cat.MIN_WEIGHT) {
 
                 catCount--;
 
@@ -55,7 +51,7 @@ public class Cat {
 
                 mealCount += amount; // счетчик еды
 
-                if (weight > maxWeight){
+                if (weight > Cat.MAX_WEIGHT){
 
                     isAlive = false;
 
@@ -71,7 +67,7 @@ public class Cat {
 
         weight = weight + amount;
 
-        if (weight > maxWeight){
+        if (weight > Cat.MAX_WEIGHT){
 
             isAlive = false;
 
@@ -89,9 +85,9 @@ public class Cat {
         }
         public String getStatus ()
         {
-                if (weight < minWeight) {
+                if (weight < Cat.MIN_WEIGHT) {
                     return "Dead";
-                } else if (weight > maxWeight) {
+                } else if (weight > Cat.MAX_WEIGHT) {
                     return "Exploded";
                 } else if (weight > originWeight) {
                     return "Sleeping";
