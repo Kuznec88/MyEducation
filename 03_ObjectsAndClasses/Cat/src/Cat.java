@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class Cat {
 
     public static final int EYE_COUNT = 2; // задание 3.4
@@ -12,8 +10,6 @@ public class Cat {
 
     private double mealCount; // создаем переменную для счетчика еды
 
-    public boolean isAlive = true;
-
 
     public Cat() {
         weight = 1500.0 + 3000.0 * Math.random();
@@ -21,6 +17,17 @@ public class Cat {
         catCount++; // а сюда засунуть сам счетчик?
     }
 
+    public boolean alive() // добавил метод
+    {
+        return weight <= Cat.MAX_WEIGHT && weight >= Cat.MIN_WEIGHT;
+    }
+
+    public boolean countBack() // еще один добавил
+    {
+        boolean b = weight < Cat.MIN_WEIGHT;
+
+        return b;
+    }
     public void pee() // создаем метод
     {
         weight = weight - 20; // при вызове метода вес кошака меняется на -20
@@ -29,13 +36,13 @@ public class Cat {
 
     public void meow() {
 
-        if (weight <= Cat.MAX_WEIGHT && weight >= Cat.MIN_WEIGHT) {
+        if (alive()) {
 
             weight = weight - 1;
 
             System.out.println("Meow");
 
-            if (weight < Cat.MIN_WEIGHT) {
+            if (countBack()) {
 
                 catCount--;
 
@@ -45,31 +52,26 @@ public class Cat {
 
         public void feed (Double amount) {
 
-            if (isAlive) {
+            if (alive()) {
 
                 weight = weight + amount;
 
                 mealCount += amount; // счетчик еды
 
-                if (weight > Cat.MAX_WEIGHT){
-
-                    isAlive = false;
+                if (countBack()) {
 
                     catCount--;
-
-                    }
                 }
             }
+        }
 
         public void drink (Double amount) {
 
-        if (isAlive) {
+        if (alive()) {
 
         weight = weight + amount;
 
         if (weight > Cat.MAX_WEIGHT){
-
-            isAlive = false;
 
             catCount--;
         }

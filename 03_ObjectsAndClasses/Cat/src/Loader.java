@@ -21,7 +21,7 @@ public class Loader {
             System.out.println("Йоко " + ioko.getStatus());// проверяем статус, при смерти перестает мяукать
 
 
-            while (rhcp.isAlive) {
+            while (rhcp.alive()) {
 
                 rhcp.feed(150.00); // кормим на 150 гр
 
