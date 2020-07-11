@@ -2,6 +2,11 @@ import java.sql.SQLOutput;
 
 public class Loader {
     public static void main(String[] args) {
+
+        System.out.println(getKitten()); // создаем 3 кота
+        System.out.println(getKitten());
+        System.out.println(getKitten());
+
         // 1 задание
         Cat offspring = new Cat(); // создали кота
         Cat manowar = new Cat(); // создали кота
@@ -14,11 +19,18 @@ public class Loader {
 
         offspring.pee(); // кошак писает
 
-        Cat ioko = new Cat(); // создали кота
-        System.out.println("Вес Йоко " + ioko.getWeight()); // получаем вес и выводим в консоль
-        while (!ioko.getStatus().equals("Dead")) { // кошка мяукает пока статус не будет деад, без break)
-            ioko.meow(); // мяукает
-            System.out.println("Йоко " + ioko.getStatus());// проверяем статус, при смерти перестает мяукать
+        //Cat ioko = new Cat(); // создали кота
+        //System.out.println("Вес Йоко " + ioko.getWeight()); // получаем вес и выводим в консоль
+        //while (!ioko.getStatus().equals("Dead")) { // кошка мяукает пока статус не будет деад, без break)
+           // ioko.meow(); // мяукает
+           // System.out.println("Йоко " + ioko.getStatus());// проверяем статус, при смерти перестает мяукать
+
+            Cat cat = new Cat(); // создали кота
+            System.out.println(Cat.catCount);
+            while (!cat.getStatus().equals("Dead")) {
+                cat.meow();
+            }
+            System.out.println(Cat.catCount);
 
 
             while (rhcp.alive()) {
@@ -31,5 +43,7 @@ public class Loader {
 
             }
         }
-    }
-}
+            private static Cat getKitten(){ // метод создания котенка
+                return new Cat(1100.00);
+            }
+        }

@@ -16,21 +16,24 @@ public class Cat {
         originWeight = weight;
         catCount++; // а сюда засунуть сам счетчик?
     }
+    public Cat(double originWeight)
+    {
+        this.originWeight = originWeight;
+    }
 
     public boolean alive() // добавил метод
     {
         return weight <= Cat.MAX_WEIGHT && weight >= Cat.MIN_WEIGHT;
     }
-
-    public boolean countBack() // еще один добавил
-    {
-        boolean b = weight < Cat.MIN_WEIGHT;
-
-        return b;
+    public void countBack() {
+        if (!alive()) {
+            catCount--;
+        }
     }
     public void pee() // создаем метод
     {
         weight = weight - 20; // при вызове метода вес кошака меняется на -20
+
         System.out.println("Agghhh"); // печатаем в консоль эмоции кошки
     }
 
@@ -42,11 +45,7 @@ public class Cat {
 
             System.out.println("Meow");
 
-            if (countBack()) {
-
-                catCount--;
-
-            }
+            countBack();
         }
     }
 
@@ -58,7 +57,7 @@ public class Cat {
 
                 mealCount += amount; // счетчик еды
 
-                if (countBack()) {
+                if (!alive()) {
 
                     catCount--;
                 }
