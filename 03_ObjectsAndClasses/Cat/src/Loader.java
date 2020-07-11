@@ -41,6 +41,7 @@ public class Loader {
 
                 System.out.println("Всего котов создано " + Cat.catCount); // вызываем счетчик котов при помощи слова Cat
 
+                System.out.println(rhcp.getColor());
             }
         }
             private static Cat getKitten(){ // метод создания котенка

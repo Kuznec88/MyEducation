@@ -7,6 +7,7 @@ public class Cat {
     public static int catCount; // правильно понял что переменную для счетчика надо засунуть сюда?
     private double originWeight;
     private double weight;
+    private String color = "Черный";
 
     private double mealCount; // создаем переменную для счетчика еды
 
@@ -76,6 +77,16 @@ public class Cat {
         }
     }
 }
+
+        public void setColor() // сеттер и геттер для цвета
+        {
+            this.color = color;
+        }
+        public String getColor()
+        {
+            return color;
+        }
+
         public double getWeight ()
         {
             return weight;
