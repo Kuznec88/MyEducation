@@ -7,7 +7,7 @@ public class Cat {
     public static int catCount; // правильно понял что переменную для счетчика надо засунуть сюда?
     private double originWeight;
     private double weight;
-    private String color = "Черный";
+    private String color;
 
     private double mealCount; // создаем переменную для счетчика еды
 
@@ -20,6 +20,8 @@ public class Cat {
     public Cat(double originWeight)
     {
         this.originWeight = originWeight;
+        this.weight = originWeight;
+        Cat.catCount++;
     }
 
     public boolean alive() // добавил метод

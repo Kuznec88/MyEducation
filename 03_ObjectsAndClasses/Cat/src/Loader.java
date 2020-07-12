@@ -26,11 +26,11 @@ public class Loader {
            // System.out.println("Йоко " + ioko.getStatus());// проверяем статус, при смерти перестает мяукать
 
             Cat cat = new Cat(); // создали кота
-            System.out.println(Cat.catCount);
+            System.out.println("Всего котов создано " + Cat.catCount);
             while (!cat.getStatus().equals("Dead")) {
                 cat.meow();
             }
-            System.out.println(Cat.catCount);
+            System.out.println("Котов осталось " + Cat.catCount);
 
 
             while (rhcp.alive()) {
@@ -41,7 +41,6 @@ public class Loader {
 
                 System.out.println("Всего котов создано " + Cat.catCount); // вызываем счетчик котов при помощи слова Cat
 
-                System.out.println(rhcp.getColor());
             }
         }
             private static Cat getKitten(){ // метод создания котенка
