@@ -8,6 +8,8 @@ public class Cat {
     private double originWeight;
     private double weight;
     private String color;
+    private int age;
+    private String name;
 
     private double mealCount; // создаем переменную для счетчика еды
 
@@ -22,6 +24,13 @@ public class Cat {
         this.originWeight = originWeight;
         this.weight = originWeight;
         Cat.catCount++;
+    }
+    public Cat(double weight, String name, int age)
+    {
+        this.weight = weight;
+        this.name = name;
+        this.age = age;
+        catCount++;
     }
 
     public boolean alive() // добавил метод
@@ -92,6 +101,22 @@ public class Cat {
         public double getWeight ()
         {
             return weight;
+        }
+        public void setAge(int age) // добавляем геттеры и сеттеры с именем и возрастом для котов
+        {
+            this.age = age;
+        }
+        public int getAge()
+        {
+            return age;
+        }
+        public void setName(String name)
+        {
+            this.name = name;
+        }
+        public String getName(String name) // вопрос по этому геттеру, правильный ли здесь параметр с именем?
+        {
+            return name;
         }
         public double mealCount () // метод по возврату съеденной еды
         {

@@ -19,6 +19,13 @@ public class Loader {
 
         offspring.pee(); // кошак писает
 
+        Cat slayer = new Cat(2300, "Slayer", 3); // создаем одинаковых кошаков через конструктор как вариант
+        Cat corn = new Cat(2300, "Corn", 3);
+
+        System.out.println("Создан кот " + slayer.getName("Slayer")); // также добавил присвоение значений через геттер
+        System.out.println("Создан кот " + corn.getName("Corn"));
+
+
         //Cat ioko = new Cat(); // создали кота
         //System.out.println("Вес Йоко " + ioko.getWeight()); // получаем вес и выводим в консоль
         //while (!ioko.getStatus().equals("Dead")) { // кошка мяукает пока статус не будет деад, без break)
