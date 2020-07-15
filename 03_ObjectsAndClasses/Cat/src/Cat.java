@@ -23,22 +23,33 @@ public class Cat {
     {
         this.originWeight = originWeight;
         this.weight = originWeight;
-        Cat.catCount++;
+
+        if (alive())
+        {
+            catCount++;
+        }
+        countBack();
     }
     public Cat(double weight, String name, int age)
     {
         this.weight = weight;
         this.name = name;
         this.age = age;
-        catCount++;
-    }
 
+        if (alive())
+        {
+            catCount++;
+        }
+        countBack();
+    }
     public boolean alive() // добавил метод
     {
         return weight <= Cat.MAX_WEIGHT && weight >= Cat.MIN_WEIGHT;
     }
-    public void countBack() {
-        if (!alive()) {
+    public void countBack()
+    {
+        if (!alive())
+        {
             catCount--;
         }
     }
@@ -69,12 +80,9 @@ public class Cat {
 
                 mealCount += amount; // счетчик еды
 
-                if (!alive()) {
-
-                    catCount--;
+                countBack();
                 }
             }
-        }
 
         public void drink (Double amount) {
 
@@ -82,12 +90,19 @@ public class Cat {
 
         weight = weight + amount;
 
-        if (weight > Cat.MAX_WEIGHT){
-
-            catCount--;
+        countBack();
         }
     }
-}
+        Cat getCatCopy()
+        {
+        Cat cat = new Cat();
+
+        cat.weight = this.weight;
+        cat.name = this.name;
+        cat.age = this.age;
+
+        return new Cat();
+        }
 
         public void setColor() // сеттер и геттер для цвета
         {

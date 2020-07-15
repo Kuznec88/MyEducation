@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.sql.SQLOutput;
 
 public class Loader {
@@ -19,11 +21,10 @@ public class Loader {
 
         offspring.pee(); // кошак писает
 
-        Cat slayer = new Cat(2300, "Slayer", 3); // создаем одинаковых кошаков через конструктор как вариант
-        Cat corn = new Cat(2300, "Corn", 3);
-
-        System.out.println("Создан кот " + slayer.getName("Slayer")); // также добавил присвоение значений через геттер
-        System.out.println("Создан кот " + corn.getName("Corn"));
+        Cat cat1 = new Cat(2300.00, "Vaska", 3 );
+        System.out.println(cat1);
+        System.out.println(Cat.catCount);
+        System.out.println("Создаем копию кота???  " + cat1.getCatCopy());
 
 
         //Cat ioko = new Cat(); // создали кота
