@@ -24,7 +24,7 @@ public class Loader {
         Cat cat1 = new Cat(2300.00, "Vaska", 3 );
         System.out.println(cat1);
         System.out.println(Cat.catCount);
-        System.out.println("Создаем копию кота???  " + cat1.getCatCopy());
+        System.out.println("Создаем копию кота???  " + cat1.CatCopy());
 
 
         //Cat ioko = new Cat(); // создали кота

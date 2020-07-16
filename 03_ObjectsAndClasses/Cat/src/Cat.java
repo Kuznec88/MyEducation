@@ -28,7 +28,6 @@ public class Cat {
         {
             catCount++;
         }
-        countBack();
     }
     public Cat(double weight, String name, int age)
     {
@@ -40,7 +39,6 @@ public class Cat {
         {
             catCount++;
         }
-        countBack();
     }
     public boolean alive() // добавил метод
     {
@@ -93,7 +91,7 @@ public class Cat {
         countBack();
         }
     }
-        Cat getCatCopy()
+        public Cat CatCopy()
         {
         Cat cat = new Cat();
 
