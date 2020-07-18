@@ -4,12 +4,16 @@ public class Main
     {
         Container container = new Container();
         container.count += 7843;
+        System.out.println(sumDigits());
 
     }
 
-    public Integer sumDigits(Integer number)
+    public static Integer sumDigits()
     {
-        //@TODO: write code here
-        return 0;
+        Integer a = 12345;
+        Integer b = 10;
+        Integer c = 5059191;
+
+        return a + b + c;
     }
 }
