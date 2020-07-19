@@ -99,7 +99,7 @@ public class Cat {
         cat.name = this.name;
         cat.age = this.age;
 
-        return new Cat();
+        return cat;
         }
 
         public void setColor() // сеттер и геттер для цвета
