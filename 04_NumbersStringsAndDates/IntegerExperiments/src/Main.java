@@ -1,19 +1,26 @@
-public class Main
-{
+public class Main {
     public static void main(String[] args)
     {
         Container container = new Container();
         container.count += 7843;
-        System.out.println(sumDigits());
+
+
+        System.out.println(sumDigits(5059191));
+        System.out.println(sumDigits(10));
+        System.out.println(sumDigits(12345));
 
     }
 
-    public static Integer sumDigits()
+    public static Integer sumDigits(Integer number)
     {
-        Integer a = 12345;
-        Integer b = 10;
-        Integer c = 5059191;
+        number = Math.abs(number);
+        int sum = 0;
 
-        return a + b + c;
+        while (number != 0)
+        {
+            sum += number % 10;
+            number /= 10;
+        }
+        return sum;
     }
 }
