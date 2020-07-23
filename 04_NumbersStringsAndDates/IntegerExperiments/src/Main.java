@@ -1,6 +1,5 @@
 public class Main {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Container container = new Container();
         container.count += 7843;
 
@@ -11,16 +10,14 @@ public class Main {
 
     }
 
-    public static Integer sumDigits(Integer number)
-    {
+    public static Integer sumDigits(Integer number) {
         number = Math.abs(number);
+        String str = number.toString();
         int sum = 0;
 
-        while (number != 0)
-        {
-            sum += number % 10;
-            number /= 10;
+        for (int i = 0; i < str.length(); i++) {
+            sum += Character.getNumericValue(i);
         }
-        return sum;
+        return (int) sum;
     }
 }
