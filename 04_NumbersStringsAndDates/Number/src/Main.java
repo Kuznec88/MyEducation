@@ -12,9 +12,9 @@ public class Main {
         System.out.println("Максимальное занчение для Long " + Long.MAX_VALUE);
         System.out.println("Минимальное значение для Long " + Long.MIN_VALUE);
         System.out.println("Максимальное занчение для Float " + Float.MAX_VALUE);
-        System.out.println("Минимальное значение для Float " + Float.MIN_VALUE);
+        System.out.println("Минимальное значение для Float " + -Float.MAX_VALUE);
         System.out.println("Максимальное занчение для Double " + Double.MAX_VALUE);
-        System.out.println("Минимальное значение для Double " + Double.MIN_VALUE);
+        System.out.println("Минимальное значение для Double " + -Double.MAX_VALUE);
         System.out.println("Максимальное значение для Char в числовом выражении " + (int)a);
         System.out.println("Минимальное значение для Char в числовом выражении " + (int)b);
     }
