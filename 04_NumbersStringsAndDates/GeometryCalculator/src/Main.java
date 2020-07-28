@@ -10,7 +10,7 @@ public class Main {
         System.out.println(GeometryCalculator.getSphereVolume((57.6)));
         System.out.println(GeometryCalculator.getSphereVolume((0)));
 
-        System.out.println("\nis Triangle Right");
+        System.out.println("\nThis Triangle Right?");
         System.out.println(GeometryCalculator.isTriangleRightAngled(0, 0, 0));
         System.out.println(GeometryCalculator.isTriangleRightAngled(1, 2, 3));
         System.out.println(GeometryCalculator.isTriangleRightAngled(5, 5, 11));
