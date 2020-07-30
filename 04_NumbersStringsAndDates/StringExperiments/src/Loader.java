@@ -2,7 +2,43 @@ import java.util.Scanner;
 
 public class Loader {
     public static void main(String[] args) {
-        String safe = "12345678910111213";// до 11 символа
+        String bbcNews = "Australia's virus-hit state of Victoria has reported its worst death toll and case rise, prompting fears that a six-week lockdown of state capital Melbourne is not working.\n" +
+                "\n" +
+                "The state confirmed 13 new deaths and 723 new cases on Thursday - a 36% jump on the case record set on Monday.\n" +
+                "\n" +
+                "There are fears now that Melbourne's lockdown, which began on 7 July, will need to be extended.\n" +
+                "\n" +
+                "The spike meant Australia overall had its deadliest day in the pandemic.\n" +
+                "\n" +
+                "A 14th person died late on Thursday but his death will be included in Friday's figures as it was announced after the government's briefing.\n" +
+                "\n" +
+                "Officials in Victoria renewed appeals for people with symptoms to get tested quickly.\n" +
+                "\n" +
+                "Last week, the Victorian government said sick people breaking isolation rules - or not getting tested in time - was leading to continued spread despite lockdown measures.\n" +
+                "\n" +
+                "\"If you've got symptoms, the only thing you can do is get tested,\" said Premier Daniel Andrews.\n" +
+                "\n" +
+                "\"You just can't go to work. Because all you'll be doing is spreading the virus.\"\n" +
+                "\n" +
+                "Thursday's figures dash hopes that recent lower case numbers indicated the state had turned a corner.";
+
+        String[] space = bbcNews.split("\\s+"); // задание с текстом и регулярными выражениями
+
+        for (int i = 0; i < space.length; i++)
+
+            System.out.println(space[i]);
+            System.out.println(" количество слов " + space.length);
+
+
+
+        String safe = " <1234567891011>1213"; // задание со звездочкой
+
+        int n = safe.indexOf('<');
+        int k = safe.indexOf('>');
+
+        System.out.println(safe.substring(0, n) + "**************" + safe.substring(k + 1));
+
+
         String text = "Вася заработал 5000 рублей, Петя - 7563 рубля, а Маша - 30000 рублей";
 
         int sizeOfStr = text.length(); // переменная длина строки
@@ -45,15 +81,4 @@ public class Loader {
         System.out.println("Отчество: " + otherName);
 
         }
-//        public static String searchAndReplaceDiamonds(String safe) {
-//        int num = safe.length();
-//        int firstDigit = safe.indexOf(0);
-//        int lastDigit = safe.indexOf(11);
-//        StringBuffer maskedbuf = new StringBuffer(safe.substring(firstDigit, lastDigit));
-//        for (int i = firstDigit; i < lastDigit; i++) {
-//            maskedbuf.append('*');
-//
-//            return searchAndReplaceDiamonds("1234567891011213");
-//        }
-//        System.out.println(searchAndReplaceDiamonds(safe));
     }
