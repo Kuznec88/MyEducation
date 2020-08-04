@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Loader {
     public static void main(String[] args) {
@@ -23,6 +24,7 @@ public class Loader {
                 "Thursday's figures dash hopes that recent lower case numbers indicated the state had turned a corner.";
 
         String[] space = bbcNews.split("\\s+"); // задание с текстом и регулярными выражениями
+        bbcNews.replaceAll("\\p{Punct}", "");
 
         for (int i = 0; i < space.length; i++)
 
@@ -41,23 +43,30 @@ public class Loader {
 
         String text = "Вася заработал 5000 рублей, Петя - 7563 рубля, а Маша - 30000 рублей";
 
-        int sizeOfStr = text.length(); // переменная длина строки
-        int sum = 0; // инициализируем переменную sum с дефолтным значением
-        int tempNum = 0; // здесь инициализируем переменную которая вернет нам конкректную цифру из String
+        String [] digits = text.split("\\D+"); // неужели сделал))???
+        int first = Integer.parseInt (digits[1]); // единственное непонял, почему у меня массив начинается с 1 а не с 0?
+        int second = Integer.parseInt (digits[2]); // это как то связано с методом сплит?
+        int third = Integer.parseInt (digits[3]);
 
-        for (int i = 0; i < sizeOfStr; ++i) { // цикл для перебора char
-            if (Character.isDigit(text.charAt(i))) { // если char который передает нам цикл - цифра, то...
-                tempNum = (10 * tempNum) + Character.getNumericValue(text.charAt(i)); // в переменной считаем значение цифры из текста и умножаем на 10 чтобы получилось целое число?
-            } else // в другом случае...
-            {
-                sum += tempNum; // суммирует полученные числа
-                tempNum = 0; // обнуляем переменную чтобы цикл отработал заново
-            }
-        }
-        sum += tempNum; // получаем переменную с суммой всех полученных чисел
-        System.out.println("Ребята заработали суммарно " + sum); // выводим в консоль
+        int sum = first + second + third;
 
-        System.out.println(text);
+        System.out.println(sum);
+
+//        int sizeOfStr = text.length(); // переменная длина строки
+//        int sum = 0; // инициализируем переменную sum с дефолтным значением
+//        int tempNum = 0; // здесь инициализируем переменную которая вернет нам конкректную цифру из String
+//
+//        for (int i = 0; i < sizeOfStr; ++i) { // цикл для перебора char
+//            if (Character.isDigit(text.charAt(i))) { // если char который передает нам цикл - цифра, то...
+//                tempNum = (10 * tempNum) + Character.getNumericValue(text.charAt(i)); // в переменной считаем значение цифры из текста и умножаем на 10 чтобы получилось целое число?
+//            } else // в другом случае...
+//            {
+//                sum += tempNum; // суммирует полученные числа
+//                tempNum = 0; // обнуляем переменную чтобы цикл отработал заново
+//            }
+//        }
+//        sum += tempNum; // получаем переменную с суммой всех полученных чисел
+//        System.out.println("Ребята заработали суммарно " + sum); // выводим в консоль
 
 
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -69,16 +78,14 @@ public class Loader {
         System.out.println("Введите ФИО: "); // просим ввести ФИО
         String fullName = scanner.nextLine(); // считываем следующую строку
 
-        int firstIndex = fullName.indexOf(" "); // получаем пробел, первый пробел в строке будет точкой отсчета
-        int lastIndex = fullName.lastIndexOf(" "); // и где заканчивается
+        String[] firstName = fullName.split("\\s+"); // считываем фамилию, первый символ 0 и последний там где первый пробел
+        String[] lastName = fullName.split("\\s+");// пробел + 1 символ, начало следующего ввода
+        String[] otherName = fullName.split("\\s+");// предыдущая точка "закрытия" + 1 символ
 
-        String firstName = fullName.substring(0, firstIndex); // считываем фамилию, первый символ 0 и последний там где первый пробел
-        String lastName = fullName.substring(firstIndex + 1, lastIndex);// пробел + 1 символ, начало следующего ввода
-        String otherName = fullName.substring(lastIndex + 1);// предыдущая точка "закрытия" + 1 символ
 
-        System.out.println("Фамилия: " + firstName); // выводим в консоль
-        System.out.println("Имя: " + lastName);
-        System.out.println("Отчество: " + otherName);
+        System.out.println("Фамилия: " + firstName[0]); // выводим в консоль
+        System.out.println("Имя: " + lastName[1]);
+        System.out.println("Отчество: " + otherName[2]);
 
         }
     }
