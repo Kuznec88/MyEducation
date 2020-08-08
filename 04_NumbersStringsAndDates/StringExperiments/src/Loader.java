@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Loader {
     public static void main(String[] args) {
@@ -23,14 +22,15 @@ public class Loader {
                 "\n" +
                 "Thursday's figures dash hopes that recent lower case numbers indicated the state had turned a corner.";
 
+
+        bbcNews = bbcNews.replaceAll("\\p{Punct}", "");
         String[] space = bbcNews.split("\\s+"); // задание с текстом и регулярными выражениями
-        bbcNews.replaceAll("\\p{Punct}", "");
+
 
         for (int i = 0; i < space.length; i++)
 
             System.out.println(space[i]);
-            System.out.println(" количество слов " + space.length);
-
+        System.out.println(" количество слов " + space.length);
 
 
         String safe = " <1234567891011>1213"; // задание со звездочкой
@@ -43,14 +43,18 @@ public class Loader {
 
         String text = "Вася заработал 5000 рублей, Петя - 7563 рубля, а Маша - 30000 рублей";
 
-        String [] digits = text.split("\\D+"); // неужели сделал))???
-        int first = Integer.parseInt (digits[1]); // единственное непонял, почему у меня массив начинается с 1 а не с 0?
-        int second = Integer.parseInt (digits[2]); // это как то связано с методом сплит?
-        int third = Integer.parseInt (digits[3]);
+//        String [] digits = text.split("\\D+"); // здесь застрял, непонимаю как привести весь массив строк к инту, то есть по конкректным элементам массива получается...
+//        int calc = Integer.parseInt(digits[]); // ... а все вместе нет
+//        for(int i = 0; i < calc; i++)
+//        {
+//            System.out.println(i);
+//        }
 
-        int sum = first + second + third;
 
-        System.out.println(sum);
+        //int first = Integer.parseInt(digits[1]); // единственное непонял, почему у меня массив начинается с 1 а не с 0?
+//        int second = Integer.parseInt (digits[2]); // это как то связано с методом сплит?
+//        int third = Integer.parseInt (digits[3]);
+
 
 //        int sizeOfStr = text.length(); // переменная длина строки
 //        int sum = 0; // инициализируем переменную sum с дефолтным значением
@@ -78,14 +82,43 @@ public class Loader {
         System.out.println("Введите ФИО: "); // просим ввести ФИО
         String fullName = scanner.nextLine(); // считываем следующую строку
 
-        String[] firstName = fullName.split("\\s+"); // считываем фамилию, первый символ 0 и последний там где первый пробел
-        String[] lastName = fullName.split("\\s+");// пробел + 1 символ, начало следующего ввода
-        String[] otherName = fullName.split("\\s+");// предыдущая точка "закрытия" + 1 символ
+        String[] anyName = fullName.split("\\s+"); // измененное задание, вытащил все из одного массива
+
+        System.out.println("Фамилия: " + anyName[0]); // выводим в консоль
+        System.out.println("Имя: " + anyName[1]);
+        System.out.println("Отчество: " + anyName[2]);
+
+        if (!(anyName.length == 2)) {
+            System.out.println("Введите отчество");
+        }
 
 
-        System.out.println("Фамилия: " + firstName[0]); // выводим в консоль
-        System.out.println("Имя: " + lastName[1]);
-        System.out.println("Отчество: " + otherName[2]);
+
+
+        Scanner scanner2 = new Scanner(System.in); // начал писать метод для номеров телефона
+
+        System.out.println("Введите номер телефона: ");
+
+        String telNumber = scanner2.nextLine();
+
+        System.out.println(telNumber.replaceAll("[^0-9]", ""));
+
+        System.out.println(telNumber.length());
+
+        if(telNumber.length() > 11)
+        {
+            System.out.println("Цифр больше чем надо");
+        }
+        if(telNumber.length() < 11)
+        {
+            System.out.println("Цифр меньше чем надо");
+        }
+        if (telNumber.indexOf(1) != 7 && telNumber.indexOf(1) != 8)
+        {
+            System.out.println("Неправильный код страны");
+
+            System.out.println("Код страны измененнен ");
+        }
 
         }
     }
