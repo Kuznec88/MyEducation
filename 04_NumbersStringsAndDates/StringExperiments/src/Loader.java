@@ -1,7 +1,33 @@
-import java.util.Scanner;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Loader {
     public static void main(String[] args) {
+
+//        int day = 17;
+//        int month = 11;
+//        int year = 1992;
+
+        DateFormat dateFormat = new SimpleDateFormat("- dd.MM.yyyy - EEE", Locale.ENGLISH); //Задаем оформление даты
+        Calendar calendar = Calendar.getInstance(); // создаем календарь
+        calendar.set(1992, Calendar.NOVEMBER, 17);  // Задаем наш день рождения
+        Date date = new Date();
+        Date your = calendar.getTime();
+        int i = 0;
+        while (date.compareTo(your) > 0)            // сравниваем дату рождения + количество лет с текущей датой если дата дня рождения раньше текущей даты получаем 1
+        {
+            System.out.println(i + dateFormat.format(your));        // выводим данные типо  0- 17.11.1992 , где 0 это количество лет
+            calendar.add(Calendar.YEAR, 1);    // Добавляем к дню рождения +1 год
+            your = calendar.getTime();
+            i++;
+
+        }
+
+
+
+
+
         String bbcNews = "Australia's virus-hit state of Victoria has reported its worst death toll and case rise, prompting fears that a six-week lockdown of state capital Melbourne is not working.\n" +
                 "\n" +
                 "The state confirmed 13 new deaths and 723 new cases on Thursday - a 36% jump on the case record set on Monday.\n" +
@@ -27,11 +53,11 @@ public class Loader {
         String[] space = bbcNews.split("\\s+"); // задание с текстом и регулярными выражениями
 
 
-        for (int i = 0; i < space.length; i++)
-
-            System.out.println(space[i]);
-        System.out.println(" количество слов " + space.length);
-
+//        for (int i = 0; i < space.length; i++) {
+//
+//            System.out.println(space[i]);
+//            System.out.println(" количество слов " + space.length);
+//        }
 
         String safe = " <1234567891011>1213"; // задание со звездочкой
 
@@ -119,6 +145,5 @@ public class Loader {
 
             System.out.println("Код страны измененнен ");
         }
-
         }
     }
