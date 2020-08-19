@@ -11,21 +11,18 @@ public class Loader {
 
         DateFormat dateFormat = new SimpleDateFormat("- dd.MM.yyyy - EEE", Locale.ENGLISH); //Задаем оформление даты
         Calendar calendar = Calendar.getInstance(); // создаем календарь
-        calendar.set(1992, Calendar.NOVEMBER, 17);  // Задаем наш день рождения
+        calendar.set(1966, Calendar.NOVEMBER, 06);  // Задаем наш день рождения
         Date date = new Date();
         Date your = calendar.getTime();
-        int i = 0;
+        int a = 0;
         while (date.compareTo(your) > 0)            // сравниваем дату рождения + количество лет с текущей датой если дата дня рождения раньше текущей даты получаем 1
         {
-            System.out.println(i + dateFormat.format(your));        // выводим данные типо  0- 17.11.1992 , где 0 это количество лет
+            System.out.println(a + dateFormat.format(your));        // выводим данные типо  0- 17.11.1992 , где 0 это количество лет
             calendar.add(Calendar.YEAR, 1);    // Добавляем к дню рождения +1 год
             your = calendar.getTime();
-            i++;
+            a++;
 
         }
-
-
-
 
 
         String bbcNews = "Australia's virus-hit state of Victoria has reported its worst death toll and case rise, prompting fears that a six-week lockdown of state capital Melbourne is not working.\n" +
@@ -51,6 +48,9 @@ public class Loader {
 
         bbcNews = bbcNews.replaceAll("\\p{Punct}", "");
         String[] space = bbcNews.split("\\s+"); // задание с текстом и регулярными выражениями
+        for (int i = 0; i < space.length; i++) {
+            System.out.println(i);
+        }
 
 
 //        for (int i = 0; i < space.length; i++) {
@@ -69,12 +69,12 @@ public class Loader {
 
         String text = "Вася заработал 5000 рублей, Петя - 7563 рубля, а Маша - 30000 рублей";
 
-//        String [] digits = text.split("\\D+"); // здесь застрял, непонимаю как привести весь массив строк к инту, то есть по конкректным элементам массива получается...
-//        int calc = Integer.parseInt(digits[]); // ... а все вместе нет
-//        for(int i = 0; i < calc; i++)
-//        {
-//            System.out.println(i);
-//        }
+        String[] digits = text.replaceAll("\\D+", " ").trim().split(" ");
+        int sum = 0;
+        for (int i = 0; i < digits.length; i++) {
+            sum += Integer.parseInt(digits[i]);
+        }
+        System.out.println("Общий заработок: " + sum);
 
 
         //int first = Integer.parseInt(digits[1]); // единственное непонял, почему у меня массив начинается с 1 а не с 0?
@@ -112,38 +112,39 @@ public class Loader {
 
         System.out.println("Фамилия: " + anyName[0]); // выводим в консоль
         System.out.println("Имя: " + anyName[1]);
-        System.out.println("Отчество: " + anyName[2]);
-
-        if (!(anyName.length == 2)) {
-            System.out.println("Введите отчество");
-        }
+        System.out.println(" Отчество: " + anyName[2]);
 
 
-
+//        System.out.println("Фамилия: " + anyName[0]); // выводим в консоль
+//        System.out.println("Имя: " + anyName[1]);
+//        System.out.println("Отчество: " + anyName[2]);
+//
+//        if (anyName.length == 1) {
+//            System.out.println("Введите отчество");
+//        }
 
         Scanner scanner2 = new Scanner(System.in); // начал писать метод для номеров телефона
 
-        System.out.println("Введите номер телефона: ");
+        System.out.println("Введите номер телефона: +7");
 
         String telNumber = scanner2.nextLine();
 
-        System.out.println(telNumber.replaceAll("[^0-9]", ""));
+        String rightNumber = telNumber.replaceAll("[^0-9]", "");
 
-        System.out.println(telNumber.length());
+        System.out.println("+7" + rightNumber);
 
-        if(telNumber.length() > 11)
+        System.out.println("Введенных цифр " + rightNumber.length());
+
+        if (rightNumber.length() >= 11)
         {
             System.out.println("Цифр больше чем надо");
         }
-        if(telNumber.length() < 11)
+        if (telNumber.length() < 10)
         {
             System.out.println("Цифр меньше чем надо");
         }
-        if (telNumber.indexOf(1) != 7 && telNumber.indexOf(1) != 8)
-        {
-            System.out.println("Неправильный код страны");
-
-            System.out.println("Код страны измененнен ");
-        }
-        }
     }
+}
+
+
+
