@@ -18,35 +18,36 @@ public class ModulFive {
                 for (String sizeList : todoList) // задаем еще одну переменную для корректного вывода
                     System.out.println("Список дел: " + sizeList); // выводим
             }
-            if (instruction.matches("add\\s+\\d+\\s+.+")) { // если инструкция соответствует add, пробел..., целое число..., пробел..., любой символ...
-                String[] added = instruction.split("\\s+", 3); // создаем масиив строк и разбиваем инстуркцию по 3 пробелам
 
-                if (Integer.parseInt(added[1]) <= todoList.size()) ;// сюда добавил проверку
-
-                todoList.add(Integer.parseInt(added[1]), added[2]); // в аррайлист добавляем преобразованный в целое число номер дела и само дело?
-                System.out.println("Добавлено дело " + todoList.size());
-            } else {
-                ((instruction.matches("add\\s+.+")))  // еще одна проверка на добавление без номера
-                String[] secondAdd = instruction.split("\\s+", 2);
-                todoList.add(secondAdd[1]);
-                System.out.println("Добавлено дело " + todoList.size());
-            }
-
+                if (instruction.matches("add\\s+\\d+\\s+.+")) {
+                    String[] added = instruction.split("\\s+", 3);
+                    if (Integer.parseInt(added[1]) <= todoList.size()) {
+                        todoList.add(Integer.parseInt(added[1]), added[2]);
+                        System.out.println("Добавлено дело " + todoList.size());
+                    }
+                } else if (instruction.matches("add\\s+.+")) {
+                    String[] secondAdd = instruction.split("\\s+", 2);
+                    todoList.add(secondAdd[1]);
+                    System.out.println("Добавлено дело " + todoList.size());
+                }
 
                 if (instruction.matches("delete\\s+\\d+") && todoList.size() > 0) { // если инструкция соотвествует delete с пробелом и любая цифра
-                    String[] deleted = instruction.split("\\s+",2); // создается массив строк и делится по 2 пробелам
+                    String[] deleted = instruction.split("\\s+", 2); // создается массив строк и делится по 2 пробелам
                     todoList.remove(Integer.parseInt(deleted[1])); // удаляем элемент преобразованный в инт в массиве под индексом 1
                     System.out.println("Дело удалено"); // вывод
                 }
-                if (instruction.matches("edit\\s+\\d+\\s+.+") && todoList.size() > 0) {
+                if (instruction.matches("edit\\s+\\d+\\s+.+")) {
                     String[] edited = instruction.split("\\s+", 3);
                     todoList.set(Integer.parseInt(edited[1]), edited[2]);
                     System.out.println("Дело изменено");
+                    if (Integer.parseInt(edited[1]) > todoList.size()){
+                        System.out.println("Неправильный номер дела");
+                    }
                 }
-                if(todoList.isEmpty())// если аррайлист пуст
+                if (todoList.isEmpty())// если аррайлист пуст
                 {
-                System.out.println("Список пуст");// выводим инфу
+                    System.out.println("Список пуст");// выводим инфу
                 }
+            }
         }
     }
-}
