@@ -36,14 +36,15 @@ public class ModulFive {
                     todoList.remove(Integer.parseInt(deleted[1])); // удаляем элемент преобразованный в инт в массиве под индексом 1
                     System.out.println("Дело удалено"); // вывод
                 }
-                if (instruction.matches("edit\\s+\\d+\\s+.+")) {
-                    String[] edited = instruction.split("\\s+", 3);
+            if (instruction.matches("edit\\s+\\d+\\s+.+")) {
+                String[] edited = instruction.split("\\s+", 3);
+                if (Integer.parseInt(edited[1]) > todoList.size()){
+                    System.out.println("Неправильный номер дела");
+                } else {
                     todoList.set(Integer.parseInt(edited[1]), edited[2]);
                     System.out.println("Дело изменено");
-                    if (Integer.parseInt(edited[1]) > todoList.size()){
-                        System.out.println("Неправильный номер дела");
-                    }
                 }
+            }
                 if (todoList.isEmpty())// если аррайлист пуст
                 {
                     System.out.println("Список пуст");// выводим инфу
