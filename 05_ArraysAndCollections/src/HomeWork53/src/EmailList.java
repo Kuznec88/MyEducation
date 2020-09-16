@@ -7,4 +7,7 @@ public class EmailList {
     public String add(String) {
         return emailList.add();
     }
+    public String printList(String){
+        return String.valueOf(emailList.size());
+    }
 }
