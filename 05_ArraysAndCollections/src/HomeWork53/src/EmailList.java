@@ -4,10 +4,12 @@ public class EmailList {
 
     TreeSet<String> emailList = new TreeSet<>();
 
-    public String add(String) {
-        return emailList.add();
+    public String add(String email) {
+        return String.valueOf(emailList.add(email));
     }
-    public String printList(String){
-        return String.valueOf(emailList.size());
+    public void printList()
+    {
+        for(String sizeList : emailList)
+            System.out.println("Список мыл: " + sizeList);
     }
 }

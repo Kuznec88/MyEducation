@@ -7,6 +7,6 @@ public class UserInput {
     {
         System.out.println("Введите команду \"ADD\" или \"LIST\" ");
         String[] scannerString = scanner.nextLine().split("\\s+", 2);
-        return scannerString[1];
+        return String.valueOf(scannerString);
     }
-} 
+}
