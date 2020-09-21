@@ -2,12 +2,12 @@ import java.util.TreeSet;
 
 public class EmailList {
 
-    TreeSet<String> emailList = new TreeSet<>();
+    TreeSet<String> emailList = new TreeSet<>(); // конструктор для трисета?
 
-    public String add(String email) {
-        return String.valueOf(emailList.add(email));
+    public void add(String email) { // метод add строковый
+        emailList.add(email); // команда для добавления в трисет
     }
-    public void printList()
+    public void printList() // метод для вывода в консоль
     {
         for(String sizeList : emailList)
             System.out.println("Список мыл: " + sizeList);
