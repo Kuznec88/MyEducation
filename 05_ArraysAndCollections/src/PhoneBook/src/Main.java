@@ -1,30 +1,38 @@
-import java.util.HashMap;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) {
-
-        HashMap<Integer, String> phoneBook = new HashMap<>(); // допустим создаем мапу
-        System.out.println("Введите номер телефона: "); // первая строчка просит ввести что нибудь
+        TreeMap<String, Integer> phoneBook = new TreeMap<>(); // допустим создаем мапу
+        System.out.println("Введите номер телефона, имя или команду LIST: "); // первая строчка просит ввести что нибудь
         Scanner scanner = new Scanner(System.in); // создаем сканнер
-        String[] number = scanner.nextLine().split("\\d+"); // делим первую строчку по цифрам
-        String[] name = scanner.nextLine().split("\\w+"); // вторую по буквам
 
+//phoneBook.put("stas",898989); // это мои проверочные штуки)
 
-        phoneBook.put(3495834, "stas"); // это мои проверочные штуки)
-        System.out.println("Размер массив с номером " + number.length);
-        System.out.println("Размер массив с именем " + name.length);
-        System.out.println(phoneBook.toString());
+        for (; ; ) { // создаем цикл
 
-        while (true) { // создаем цикл
-            if (phoneBook.containsKey(Integer.parseInt(number[1]))) { // если в мапе есть ключ с номером который переведенн в стринг
-                System.out.println("Введите имя: "); // то просим ввести имя
-                phoneBook.put(Integer.parseInt(number[0]), name[1]); // добавить в мапу ключ с номером и значение с именем
+            String information = scanner.nextLine(); // делим первую строчку по цифрам
 
-                if (phoneBook.containsValue(name[1])) { // если в мапе есть значение с именем
-                    System.out.println("Введите номер: "); // то просим ввести номер
-                    phoneBook.put(Integer.parseInt(number[0]), name[1]); // добавляем в мап ключ и значение
-                }
+            if (information.startsWith("LIST") && !phoneBook.isEmpty()) {
+                for (String vivod : phoneBook.keySet())
+                    System.out.println("Абонент " + vivod + " с номером " + phoneBook.get(vivod));
+            }else {
+                System.out.println("Телефонная книга пуста");
+            }
+            if(information.matches("\\d+") && !phoneBook.containsValue(Integer.parseInt(information))){
+                System.out.println("Такого номера нет в контактах, введите для него имя: ");
+                phoneBook.put(scanner.nextLine(), (Integer.parseInt(information)));
+                System.out.println("В контакты добавлен абонент: " + phoneBook.keySet() + "с номером " + phoneBook.values());
+            }
+            if(information.matches("\\D+") && !phoneBook.containsKey(information))
+            {
+                System.out.println("Такого имени нет в контактах, введите для него номер: ");
+                phoneBook.put(information,Integer.parseInt(scanner.nextLine()));
+                System.out.println("В контакты добавлен абонент: " + phoneBook.keySet() + "с номером " + phoneBook.values());
+            }
+            if(information.matches(phoneBook.keySet().toString()))
+            {
+                System.out.println("Абонент " + phoneBook.keySet() + " с номером " + phoneBook.values());
             }
         }
     }
