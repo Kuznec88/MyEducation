@@ -16,12 +16,15 @@ public class Main {
                 printMap(phoneBook);
                 continue;
             }
-            if(!phoneBook.isEmpty() && phoneBook.containsValue(information)) {
+            if(!phoneBook.isEmpty() && phoneBook.containsValue(information))
+            {
                 System.out.println("Номер " + phoneBook.keySet() + "для абонента " + phoneBook.values());
+                continue;
             }
             if(!phoneBook.isEmpty() && phoneBook.containsKey(Long.parseLong(information)))
             {
                 System.out.println("Номер " + phoneBook.keySet() + "для абонента " + phoneBook.values());
+                continue;
             }
             if (information.matches("\\d+") && !phoneBook.containsKey(Long.parseLong(information))) {
                 System.out.println("Такого номера нет в контактах, введите для него имя: ");
