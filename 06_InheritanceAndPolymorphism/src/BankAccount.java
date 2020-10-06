@@ -1,24 +1,29 @@
-/* Список команд:
-    balance == показать баланс счета
-    put == положить денег
-    take == снять деньги
- */
-
-
 public class BankAccount{
 
-    int balance;
+    public int money;
 
-    public BankAccount(int balance)
+    public void bankAcc(int money)
     {
-        this.balance = balance;
+        this.money = money;
     }
-    public int getBalance() {
-        return balance;
+    public int getMoney()
+    {
+        return money;
     }
-
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public void setMoney(int money)
+    {
+        this.money = money;
     }
-
+    public int getBalance()
+    {
+        return getMoney();
+    }
+    public void putMoney(int addMoney)
+    {
+        bankAcc(money + addMoney);
+    }
+    public void inPutMoney(int removeMoney)
+    {
+        bankAcc(money - removeMoney);
+    }
 }

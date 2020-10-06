@@ -1,22 +1,38 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        BankAccount bankAccount = new BankAccount(0);
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите команду balance, put или take");
-        String information = scanner.nextLine();
+        BankAccount firstAcc = new BankAccount();
+        BankAccount secAcc = new Deposit();
 
 
         for (; ; ) {
-            if (information.startsWith("balance")) {
-                System.out.println("На счету: " + bankAccount.getBalance() + " рублей");
-            }
-            if(information.startsWith("put"))
-            {
+            System.out.println("Введите конмаду: balance - чтобы узнать баланс счета" +
+                    "\n" + "Введите команду: put - чтобы положить деньги на счет" +
+                    "\n" + "Введите команду input - чтобы снять деньги со счета");
 
+            Scanner scanner = new Scanner(System.in);
+            String info = scanner.nextLine();
+
+            if(info.startsWith("balance"))
+            {
+                System.out.println("баланс счета: " + firstAcc.getBalance() + " рублей" + "\n");
+            }
+            if(info.startsWith("put"))
+            {
+                firstAcc.putMoney(Integer.parseInt(scanner.nextLine()));
+                System.out.println("Баланс успешно пополнен" + "\n" + "баланс счета: " + firstAcc.getBalance() + " рублей" + "\n");
+            }
+            if(info.startsWith("input") && firstAcc.getMoney() < Integer.parseInt(scanner.nextLine()))
+            {
+                System.out.println("Недостаточно средств для снятия" + "\n");
+                continue;
+            }
+            if(info.startsWith("input"))
+            {
+                firstAcc.inPutMoney(Integer.parseInt(scanner.nextLine()));
+                System.out.println("Деньги успешно сняты" + "\n" + "баланс счета: " + firstAcc.getBalance() + " рублей" + "\n");
             }
         }
     }
