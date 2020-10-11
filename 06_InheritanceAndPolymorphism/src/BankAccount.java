@@ -20,10 +20,14 @@ public class BankAccount{
     }
     public void putMoney(int addMoney)
     {
-        bankAcc(money + addMoney);
+        if(addMoney > 0)
+            bankAcc(money + addMoney);
+        System.out.println("Баланс успешно пополнен");
     }
     public void inPutMoney(int removeMoney)
     {
-        bankAcc(money - removeMoney);
+        if(getMoney() > 0 && removeMoney <= getMoney())
+            bankAcc(money - removeMoney);
+        System.out.println("Деньги успешно сняты");
     }
 }
