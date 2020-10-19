@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         BankAccount firstAcc = new BankAccount();
         BankAccount secAcc = new DepositAcc();
@@ -31,7 +32,7 @@ public class Main {
                 firstAcc.putMoney(Integer.parseInt(scanner.nextLine()));
                 System.out.println("Баланс успешно пополнен" + "\n" + "баланс счета: " + firstAcc.getBalance() + " рублей" + "\n");
             }
-            if (info.startsWith("input") && firstAcc.getMoney() < Integer.parseInt(scanner.nextLine())) {
+            if (info.startsWith("input") && firstAcc.getBalance() < Integer.parseInt(scanner.nextLine())) {
                 System.out.println("Недостаточно средств для снятия" + "\n");
                 continue;
             }

@@ -1,18 +1,25 @@
+import java.time.LocalDateTime;
+
 public class DepositAcc extends BankAccount {
 
-    private static final double PERCENT = 1;
+    LocalDateTime month = LocalDateTime.now().plusMonths(1);
 
-    public void Deposit(int money)
-    {
+    public void Credit(int money) {
         super.money = money;
     }
 
     @Override
+    public void putMoney(int addMoney) {
+        super.putMoney(addMoney);
+        System.out.println("Кредитный счет пополнен " + getBalance() + " снять деньги можно будет: " + month + "\n");
+    }
+
+    @Override
     public void inPutMoney(int removeMoney) {
-        if(removeMoney > 0 && removeMoney <= money)
-        {
-            Deposit((int) (money - (removeMoney + ((removeMoney/100) * PERCENT))));
-            System.out.println("Депозитные бабки " + getMoney());
+        if (!LocalDateTime.now().equals(month)) {
+            System.out.println("Cнять деньги можно будет: " + month + "\n");
+        } else {
+            super.inPutMoney(removeMoney);
         }
     }
 }

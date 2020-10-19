@@ -1,10 +1,7 @@
-import java.time.LocalDateTime;
+public class CreditAcc extends BankAccount
+    {
 
-public class CreditAcc extends BankAccount{
-
-    public static LocalDateTime now = LocalDateTime.now();
-    public static LocalDateTime month = now.plusMonths(1);
-    public static boolean after = now.isAfter(month);
+    private static final double PERCENT = 1/100;
 
     public void Credit(int money)
     {
@@ -12,17 +9,12 @@ public class CreditAcc extends BankAccount{
     }
 
     @Override
-    public void putMoney(int addMoney) {
-        super.putMoney(addMoney);
-        System.out.println("кредитные бабки " + getBalance() + " " + now);
-    }
-
-    @Override
-    public void inPutMoney(int removeMoney) {
-        if(after) {
-            super.inPutMoney(removeMoney);
-        }else{
-            System.out.println("Прошло мало времени, приходите: " + month);
+    public void inPutMoney(int removeMoney)
+    {
+        if(removeMoney > 0 && removeMoney <= super.money)
+        {
+            Credit((int) (super.money - (removeMoney + ((removeMoney) * PERCENT))));
+            System.out.println("Депозитные бабки " + getBalance());
         }
     }
 }
