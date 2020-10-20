@@ -4,22 +4,24 @@ public class DepositAcc extends BankAccount {
 
     LocalDateTime month = LocalDateTime.now().plusMonths(1);
 
-    public void Credit(int money) {
+    public void Credit(int money) // конструктор с переменной из род. класса
+    {
         super.money = money;
     }
 
     @Override
-    public void putMoney(int addMoney) {
-        super.putMoney(addMoney);
-        System.out.println("Кредитный счет пополнен " + getBalance() + " снять деньги можно будет: " + month + "\n");
-    }
+    public void putMoney(int addMoney) // при добавлении денег на счет вылазит надпись
+        {
+            System.out.println("Депозитный счет пополнен " + getBalance() + " снять деньги можно будет после: " + month + "\n");
+        }
 
     @Override
-    public void inPutMoney(int removeMoney) {
-        if (!LocalDateTime.now().equals(month)) {
-            System.out.println("Cнять деньги можно будет: " + month + "\n");
-        } else {
-            super.inPutMoney(removeMoney);
+    public void inPutMoney(int removeMoney) // при снятии денег
+    {
+        if (LocalDateTime.now().isAfter(month)) // если настоящая дата после переменной в которой + месяц
+            inPutMoney(removeMoney); //то снимааются деньги
+        else {
+            System.out.println("Еще рано"); // в противоположном случае
         }
     }
 }

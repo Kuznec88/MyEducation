@@ -5,14 +5,18 @@ public class Main {
     {
 
         BankAccount firstAcc = new BankAccount();
-        BankAccount secAcc = new DepositAcc();
-        BankAccount thirdAcc = new CreditAcc();
+        BankAccount secAcc = new CreditAcc();
+        BankAccount thirdAcc = new DepositAcc();
 
 // System.out.println(secAcc.getBalance());
-// secAcc.putMoney(500);
+//        firstAcc.putMoney(500);
+//        System.out.println(firstAcc.getBalance());
+//        System.out.println(secAcc.getBalance());
+//        secAcc.putMoney(300);
 // secAcc.inPutMoney(100);
-// thirdAcc.putMoney(200);
-// thirdAcc.inPutMoney(100);
+//        System.out.println(secAcc.getBalance());
+ thirdAcc.putMoney(200);
+ thirdAcc.inPutMoney(100);
 
         for (; ; ) {
             System.out.println("Добавьте к команде цифру 1 для обычного аккаунта" + "\n" +
