@@ -23,10 +23,10 @@ public class BankAccount {
 
     public void inPutMoney(int removeMoney) // интовый аргумент для снятия денег
     {
-        {
-            if (getBalance() > 0 && removeMoney <= getBalance()) // если на балансе сумма больше нуля, и в поле цифра меньшая или равна деньгам на счете
+            if (getBalance() > 0 && removeMoney <= getBalance())
+            { // если на балансе сумма больше нуля, и в поле цифра меньшая или равна деньгам на счете
                 setMoney(money - removeMoney); // перезаписываем значение через сеттер с минусом суммы из поля
-        }
+            }
         System.out.println("Деньги успешно сняты"); // вывод
     }
 }

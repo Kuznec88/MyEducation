@@ -1,24 +1,21 @@
-public class CreditAcc extends BankAccount
-    {
+public class CreditAcc extends BankAccount {
 
-    private static final double PERCENT = 1/100; // объявили константу с 1%
+    private static final double PERCENT = 1 / 100;
 
-    public void Credit(int money) // конструктор для другого аккаунта
-    {
-        super.money = money; // при вызове конструктора для аккаунта присваивается значение из переменной находящейся в родительском классе
+    @Override
+    public void putMoney(int addMoney) {
+        if (addMoney > 0) {
+            super.putMoney(addMoney);
+        }
+        System.out.println("Кредитный счет пополнен на: " + getBalance());
     }
 
     @Override
-    public void inPutMoney(int removeMoney) // переопределяем метод для этого класса
-    {
-        if(removeMoney > 0 && removeMoney <= getBalance()) // если сумма в поле больше нуля и поле меньше или равно балансу
-        {
-            Credit((int) (getBalance() - (removeMoney + ((removeMoney) * PERCENT))));
-            /* приводим к типу инт шоб не ругался на %,
-            дальше из полученного баланса мы вычитаем сумму из поля с прибавленным 1%
-            от введенной суммы
-             */
+    public void inPutMoney(int removeMoney) {
+        double d = getBalance() - (removeMoney + ((removeMoney) * PERCENT));
+        if(removeMoney > 0 && d >= 0) {
+            super.money = (int) d;
         }
-            System.out.println("Кредитные бабки " + getBalance()); // вывод
-        }
+        System.out.println("Кредитные бабки " + getBalance());
     }
+}
