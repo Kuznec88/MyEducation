@@ -6,14 +6,14 @@ public class DepositAcc extends BankAccount { // может использова
     private LocalDateTime month; // только в рамках класса
 
     @Override
-    protected void putMoney(int addMoney) { //используется в рамках пакета
+    public void putMoney(int addMoney) { //используется в рамках пакета
         setMoney(money + addMoney);
         month = LocalDateTime.now().plusMonths(1);
         System.out.println("Депозитный счет пополнен " + getBalance() + " снять деньги можно будет после: " + month + "\n");
     }
 
     @Override
-    protected void inPutMoney(int removeMoney) { // используется в рамках пакета
+    public void inPutMoney(int removeMoney) { // используется в рамках пакета
         if (LocalDateTime.now().equals(month)) {
             super.inPutMoney(removeMoney);
         } else {

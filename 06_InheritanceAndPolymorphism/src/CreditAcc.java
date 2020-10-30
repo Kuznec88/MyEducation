@@ -3,7 +3,7 @@ public class CreditAcc extends BankAccount {// может использоват
     private static final double PERCENT = 1 / 100; // используется только в рамках этого класса
 
     @Override
-    protected void putMoney(int addMoney) { //используется в рамках пакета
+    public void putMoney(int addMoney) { //используется в рамках пакета
         if (addMoney > 0) {
             super.putMoney(addMoney);
         }
@@ -11,7 +11,7 @@ public class CreditAcc extends BankAccount {// может использоват
     }
 
     @Override
-    protected void inPutMoney(int removeMoney) { // используется в рамках пакета
+    public void inPutMoney(int removeMoney) { // используется в рамках пакета
         double d = getBalance() - (removeMoney + ((removeMoney) * PERCENT));
         if(removeMoney > 0 && d >= 0) {
             super.money = (int) d;

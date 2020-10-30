@@ -12,9 +12,9 @@ public class Main {
 //        firstAcc.putMoney(500);
 //        System.out.println(firstAcc.getBalance());
 //        System.out.println(secAcc.getBalance());
-//        secAcc.putMoney(300);
-// secAcc.inPutMoney(100);
-//        System.out.println(secAcc.getBalance());
+        secAcc.putMoney(300);
+ secAcc.inPutMoney(100);
+        System.out.println(secAcc.getBalance());
  thirdAcc.putMoney(200);
  thirdAcc.inPutMoney(100);
 
