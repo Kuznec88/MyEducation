@@ -1,16 +1,45 @@
 public abstract class Client
 {
-    public static final double PERCENT1 = 1.0 / 100;
+    private static final double PERCENT1 = 1.0 / 100;
 
-    public static final double HALFPERCENT = 0.5/100;
+    private static final double HALFPERCENT = 0.5/100;
 
-    public double money;
+    private double money;
 
-    public abstract double getBalance();
+    public double getBalance()
+    {
+        return money;
+    }
+    public void setMoney(double money)
+    {
+        this.money = money;
+    }
+    public void putMoney(double addMoney)
+    {
+        if (addMoney > 0)
+        {
+            setMoney(getBalance() + addMoney);
+        }
+        System.out.println("Счет пополнен на: " + getBalance() + "\n" );
+    }
+    public void inPutMoney(double removeMoney)
+    {
+        if (getBalance() > 0 && removeMoney <= getBalance())
+        {
+            setMoney(getBalance() - removeMoney);
+        }
+        System.out.println("Сняты деньги: " + removeMoney + "\n"); // вывод
+    }
+    public static double getHALFPERCENT()
+    {
+        return HALFPERCENT;
+    }
 
-    public abstract void setMoney(double money);
+    public static double getPERCENT1()
+    {
+        return PERCENT1;
+    }
 
-    public abstract void putMoney(double addMoney);
+    public abstract String getInfo();
 
-    public abstract void inPutMoney(double removeMoney);
 }

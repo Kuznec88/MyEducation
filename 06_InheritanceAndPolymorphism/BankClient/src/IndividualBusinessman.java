@@ -1,13 +1,15 @@
 public class IndividualBusinessman extends Client{
 
     @Override
-    public double getBalance() {
-        return super.money;
+    public double getBalance()
+    {
+        return super.getBalance();
     }
 
     @Override
-    public void setMoney(double money) {
-        super.money = money;
+    public void setMoney(double money)
+    {
+        super.setMoney(money);
     }
 
     @Override
@@ -15,28 +17,24 @@ public class IndividualBusinessman extends Client{
     {
         if (addMoney > 0 && addMoney < 1000)
         {
-            double v = (addMoney - ((addMoney) * PERCENT1));
-            setMoney(super.money + v);
+            double v = (addMoney - ((addMoney) * getPERCENT1()));
+            setMoney(getBalance() + v);
 
-            System.out.println("Пополнение ИП на " + v);
+            System.out.println("Пополнение ИП на " + v + "\n");
         }
 
         if(addMoney >= 1000)
         {
-            double b = (addMoney - ((addMoney) * HALFPERCENT));
-            setMoney(super.money + b);
+            double b = (addMoney - ((addMoney) * getHALFPERCENT()));
+            setMoney(getBalance() + b);
 
-            System.out.println("Пополнение ИП на " + b);
+            System.out.println("Пополнение ИП на " + b + "\n");
         }
     }
 
     @Override
-    public void inPutMoney(double removeMoney)
+    public String getInfo()
     {
-        if (getBalance() > 0 && removeMoney <= getBalance())
-        { // если на балансе сумма больше нуля, и в поле цифра меньшая или равна деньгам на счете
-            setMoney(money - removeMoney); // перезаписываем значение через сеттер с минусом суммы из поля
-        }
-        System.out.println("Снятие с ИП " + removeMoney); // вывод
+        return "Пополнение до 1000р с комиссией 1%, от 1000р комиссия 0.5%, снятие без комиссии" + "\n";
     }
 }
