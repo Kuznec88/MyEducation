@@ -7,7 +7,7 @@ public class DepositAcc extends BankAccount { // может использова
 
     @Override
     public void putMoney(int addMoney) { //используется в рамках пакета
-        setMoney(money + addMoney);
+        setMoney(getBalance() + addMoney);
         month = LocalDateTime.now().plusMonths(1);
         System.out.println("Депозитный счет пополнен " + getBalance() + " снять деньги можно будет после: " + month + "\n");
     }

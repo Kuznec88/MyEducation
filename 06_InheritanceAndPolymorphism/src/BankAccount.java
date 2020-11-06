@@ -1,6 +1,6 @@
 public class BankAccount {// может использоваться в классе main
 
-    public int money; //используется в рамках пакета
+    private int money; //используется в рамках пакета
 
     protected void setMoney(int money) // используется в рамках пакета
     {
