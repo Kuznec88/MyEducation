@@ -1,11 +1,10 @@
 public class TopManager extends Company implements Employee {
 
-    int fixedTopManagerSalary = 100000; // фикс зп топа
-    int upperTopManagerSalary = fixedTopManagerSalary + (int) (fixedTopManagerSalary * TOPMANAGERPERCENT); // + проценты
+    int fixedTopManagerSalary = 100000;
+    int upperTopManagerSalary = fixedTopManagerSalary + (int) (fixedTopManagerSalary * TOPMANAGERPERCENT);
 
     @Override
-    public double getMonthSalary() // возвращает занчения при разных условиях
-    {
+    public double getMonthSalary() {
         if (companyMoney < 10000000)
         {
             return fixedTopManagerSalary;
@@ -14,12 +13,11 @@ public class TopManager extends Company implements Employee {
         {
             return upperTopManagerSalary;
         }
-        return -1; // сюда почему то требовался еще 1 return я не понял почему так, но с ним все работает
+        return -1;
     }
-
     @Override
-    public double setCompanyMoney()
+    public void setCompanyMoney()
     {
-        return companyMoney + fixedTopManagerSalary;// здесь та же история что просто с менеджером
+        super.setCompanyMoney(getIncome() + (double) fixedTopManagerSalary);
     }
 }

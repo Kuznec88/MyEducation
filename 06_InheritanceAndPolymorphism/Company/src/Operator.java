@@ -1,16 +1,15 @@
-public class Operator extends Company implements Employee
-{
-    public int operatorSalary = 30000; // зп работяги
+public class Operator extends Company implements Employee {
+    public int operatorSalary = 30000;
 
     @Override
-    public double getMonthSalary() // возвращаем зп
+    public double getMonthSalary()
     {
         return operatorSalary;
     }
 
     @Override
-    public double setCompanyMoney()
+    public void setCompanyMoney()
     {
-        return companyMoney + operatorSalary; // добавляю зп потому что раз компания может эти деньги выплачивать на кол-во экземпляров, значит она их заработала
+        super.setCompanyMoney(getIncome() + (double) operatorSalary);
     }
 }

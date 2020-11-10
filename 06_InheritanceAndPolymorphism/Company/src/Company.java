@@ -1,36 +1,46 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Company
 {
-    public static final double MANAGERPERCENT = 5.0 / 100; // константа с % для менеджера
-    public static final double TOPMANAGERPERCENT = 150.0 / 100;// константа с % для топменеджера
+    public static final double MANAGERPERCENT = 5.0 / 100;
+    public static final double TOPMANAGERPERCENT = 150.0 / 100;
 
-    public static double companyMoney; // статическая переменная для счета денег
+    public static double companyMoney;
 
-// public Company
-// {
-// List<Manager> allManager = new List<Manager>(); тут думал  сделать конструктор что когда создается компания сразу присваивается значения для персонала
-// }
+    ArrayList<Object> allEmpoyee = new ArrayList<>();
 
-    List<Employee> getTopSalaryStaff(int count) // метод из задания
+    List<Employee> getTopSalaryStaff(int count)
     {
         return null;
     }
 
-    List<Employee> getLowestSalaryStaff(int count) // метод из задания
+    List<Employee> getLowestSalaryStaff(int count)
     {
         return null;
     }
-    public static double getIncome() // возвращает деньги компании
+
+    public static double getIncome()
     {
         return companyMoney;
     }
-}
-//
-// public int hire() методы из задания
-// {
-// return
-// }
+    public void setCompanyMoney(Double companyMoney)
+    {
+        Company.companyMoney = companyMoney;
+    }
+    public void hireManager()
+    {
+        allEmpoyee.add(new Manager());
+    }
+    public void hireTopManager()
+    {
+        allEmpoyee.add(new TopManager());
+    }
+    public void hireOperator()
+    {
+        allEmpoyee.add(new Operator());
+    }
+
 // public int hireAll()
 // {
 //
@@ -39,3 +49,4 @@ public class Company
 // {
 //
 // }
+}

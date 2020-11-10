@@ -1,23 +1,18 @@
-public class Manager extends Company implements Employee // надеюсь тут все правильно сделал?)
-{
+public class Manager extends Company implements Employee {
 
-    double moneyForCompany = 115000 + (int) (Math.random() * 140000); // переменная считает рандом значение для менеджера
-    double fixedManagerSalary = 50000; // фикс зп менеджеар
+    double moneyForCompany = 115000 + (int) (Math.random() * 140000);
+    double fixedManagerSalary = 50000;
 
-    public int managerSalary = (int) (fixedManagerSalary + (moneyForCompany * MANAGERPERCENT)); // зп с %
+    public int managerSalary = (int) (fixedManagerSalary + (moneyForCompany * MANAGERPERCENT));
 
     @Override
-    public double getMonthSalary() // переопределяем метод из интерфейса
+    public double getMonthSalary()
     {
         return managerSalary;
     }
     @Override
-    public double setCompanyMoney()
+    public void setCompanyMoney()
     {
-        return getIncome() + moneyForCompany;
+        super.setCompanyMoney(getIncome() + moneyForCompany);
     }
-    /*
-     вот тут я запутался поидее при создании экземпляра менеджера деньги должны добавляться в копилку
-     Так же я пробовал сделать метод статическим но все ломается, где я не туда свернул?
-     */
 }
