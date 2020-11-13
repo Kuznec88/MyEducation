@@ -1,18 +1,30 @@
-public class Manager extends Company implements Employee {
+public class Manager implements Employer {
 
-    double moneyForCompany = 115000 + (int) (Math.random() * 140000);
-    double fixedManagerSalary = 50000;
+    public long moneyForCompany = 115000 + (int) (Math.random() * 25000);
+    public long fixedManagerSalary = 50000;
+    public static final double MANAGERPERCENT = 5.0 / 100;
+    public Company company;
 
-    public int managerSalary = (int) (fixedManagerSalary + (moneyForCompany * MANAGERPERCENT));
+    public double managerSalary = (fixedManagerSalary + (moneyForCompany * MANAGERPERCENT));
+
+    public Manager(Company company) {
+        this.company = company;
+        setCompanyMany();
+    }
 
     @Override
     public double getMonthSalary()
     {
         return managerSalary;
     }
+
     @Override
-    public void setCompanyMoney()
-    {
-        super.setCompanyMoney(getIncome() + moneyForCompany);
+    public void setCompanyMany() {
+        company.setCompanyMoney(moneyForCompany);
+    }
+
+    @Override
+    public String toString() {
+        return Manager.class.getName() + " " + managerSalary + "\n";
     }
 }
