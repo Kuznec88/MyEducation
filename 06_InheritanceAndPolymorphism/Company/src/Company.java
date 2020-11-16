@@ -26,8 +26,6 @@ public class Company {
         }
     }
 
-    ArrayList<Object> allEmployee = new ArrayList<>();
-
     List<Employer> getTopSalaryStaff(int count)
     {
         return null;

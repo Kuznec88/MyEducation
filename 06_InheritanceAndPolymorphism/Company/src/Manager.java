@@ -7,7 +7,8 @@ public class Manager implements Employer {
 
     public double managerSalary = (fixedManagerSalary + (moneyForCompany * MANAGERPERCENT));
 
-    public Manager(Company company) {
+    public Manager(Company company)
+    {
         this.company = company;
         setCompanyMany();
     }
