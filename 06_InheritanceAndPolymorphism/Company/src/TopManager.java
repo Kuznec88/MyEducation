@@ -1,4 +1,4 @@
-public class TopManager implements Employer {
+public class TopManager implements Employee {
 
     int fixedTopManagerSalary = 100000;
     public static final double TOPMANAGERPERCENT = 150.0 / 100;
@@ -8,7 +8,7 @@ public class TopManager implements Employer {
     public TopManager(Company company)
     {
         this.company = company;
-        setCompanyMany();
+        setCompanyMoney();
     }
 
     @Override
@@ -26,7 +26,7 @@ public class TopManager implements Employer {
     }
 
     @Override
-    public void setCompanyMany() {
+    public void setCompanyMoney() {
     }
 
     @Override

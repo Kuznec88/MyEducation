@@ -1,4 +1,4 @@
-public class Manager implements Employer {
+public class Manager implements Employee {
 
     public long moneyForCompany = 115000 + (int) (Math.random() * 25000);
     public long fixedManagerSalary = 50000;
@@ -10,7 +10,7 @@ public class Manager implements Employer {
     public Manager(Company company)
     {
         this.company = company;
-        setCompanyMany();
+        setCompanyMoney();
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Manager implements Employer {
     }
 
     @Override
-    public void setCompanyMany() {
+    public void setCompanyMoney() {
         company.setCompanyMoney(moneyForCompany);
     }
 

@@ -1,12 +1,22 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class Company {
+public class Company extends EmployeeComparator{
     public long companyMoney = 0; // хранятся деньги
 
-    List<Employer> employers = new ArrayList<Employer>(); // коллекция со всеми работниками
+    EmployeeComparator pcomp = new EmployeeComparator();
+//    List<Employee> employers = new ArrayList<Employee>(); // коллекция со всеми работниками
+    TreeSet<Employee> employers = new TreeSet<Employee>(pcomp);
 
-    public void hire(Employer someEmp) // принимает на вход объект
+    public Company(int count) {
+        super(count);
+    }
+
+    public Company() {
+        super();
+    }
+
+
+    public void hire(Employee someEmp) // принимает на вход объект
     {
         employers.add(someEmp); // добавляет
     }
@@ -26,12 +36,12 @@ public class Company {
         }
     }
 
-    List<Employer> getTopSalaryStaff(int count)
+    EmployeeComparator getTopSalaryStaff(int count)
     {
-        return null;
+        return new EmployeeComparator(count);
     }
 
-    List<Employer> getLowestSalaryStaff(int count)
+    List<Employee> getLowestSalaryStaff(int count)
     {
         return null;
     }

@@ -1,11 +1,11 @@
-public class Operator implements Employer {
+public class Operator implements Employee {
 
     public int operatorSalary = 30000;
     public Company company;
 
     public Operator(Company company) {
         this.company = company;
-        setCompanyMany();
+        setCompanyMoney();
     }
 
     @Override
@@ -15,7 +15,7 @@ public class Operator implements Employer {
     }
 
     @Override
-    public void setCompanyMany() {
+    public void setCompanyMoney() {
     }
 
     @Override
