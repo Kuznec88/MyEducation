@@ -11,10 +11,9 @@ public class Main
 
         System.out.println( "Заработанные деньги компании " + company.getIncome());
         System.out.println( "Сотрудники " + company.employers);
+        System.out.println("Сотрудники с максимальной зп: " + company.getTopSalaryStaff(15));
+        System.out.println("Сотрудники с минимальной зп: " + company.getLowestSalaryStaff(15));
 
-//        for(Employee p : company.employers){
-//
-//            System.out.println(p.getMonthSalary());
-            System.out.println(company.getTopSalaryStaff(5));
+
         }
     }

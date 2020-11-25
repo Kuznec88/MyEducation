@@ -4,8 +4,8 @@ public class Company extends EmployeeComparator{
     public long companyMoney = 0; // хранятся деньги
 
     EmployeeComparator pcomp = new EmployeeComparator();
-//    List<Employee> employers = new ArrayList<Employee>(); // коллекция со всеми работниками
-    TreeSet<Employee> employers = new TreeSet<Employee>(pcomp);
+    List<Employee> employers = new ArrayList<Employee>(); // коллекция со всеми работниками
+//    TreeSet<Employee> employers = new TreeSet<Employee>(pcomp);
 
     public Company(int count) {
         super(count);
@@ -36,14 +36,17 @@ public class Company extends EmployeeComparator{
         }
     }
 
-    EmployeeComparator getTopSalaryStaff(int count)
+    List<Employee> getTopSalaryStaff(int count)
     {
-        return new EmployeeComparator(count);
+        Collections.sort(employers, pcomp);
+        return employers.subList(0, Math.min(count, employers.size()));
     }
 
     List<Employee> getLowestSalaryStaff(int count)
     {
-        return null;
+        Collections.sort(employers, pcomp);
+        Collections.reverse(employers);
+        return employers.subList(0, Math.min(count, employers.size()));
     }
 
     public long getIncome() // возвращает сумму денег
