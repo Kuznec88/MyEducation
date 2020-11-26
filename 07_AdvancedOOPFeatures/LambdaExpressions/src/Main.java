@@ -14,12 +14,13 @@ public class Main
     {
         ArrayList<Employee> staff = loadStaffFromFile();
 
-        Collections.sort(staff, Comparator.comparing(Employee::getSalary).thenComparing(Employee::getName));
+        Collections.sort(staff, Comparator.comparing(Employee::getSalary));
 
-        for(Employee employee : staff)
-        {
-            System.out.println(employee);
-        }
+        Collections.sort (staff, Comparator.comparing(Employee::getName));
+
+        Collections.sort(staff, Comparator.comparing(Employee::getSalary));
+
+        staff.forEach(System.out::println);
     }
 
     private static ArrayList<Employee> loadStaffFromFile()
