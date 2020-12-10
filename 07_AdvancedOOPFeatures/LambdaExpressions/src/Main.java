@@ -2,7 +2,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.Year;
 import java.util.*;
+import java.util.function.BinaryOperator;
 import java.util.stream.Stream;
 
 public class Main
@@ -12,15 +15,15 @@ public class Main
 
     public static void main(String[] args)
     {
+        Date dateStart = new Date(2017, Calendar.JANUARY, 1);
+        Date dateFinish = new Date(2017, Calendar.DECEMBER, 31);
         ArrayList<Employee> staff = loadStaffFromFile();
 
-        Collections.sort(staff, Comparator.comparing(Employee::getSalary));
+        staff.stream()
+                .map(Employee -> Employee.getWorkStart())
+                .filter(Employee -> Employee.after(dateStart) && Employee.before(dateFinish))
+                .forEach(System.out::println);
 
-        Collections.sort (staff, Comparator.comparing(Employee::getName));
-
-        Collections.sort(staff, Comparator.comparing(Employee::getSalary));
-
-        staff.forEach(System.out::println);
     }
 
     private static ArrayList<Employee> loadStaffFromFile()
