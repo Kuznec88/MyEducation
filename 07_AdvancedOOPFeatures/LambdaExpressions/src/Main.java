@@ -13,16 +13,17 @@ public class Main
     private static String staffFile = "data/staff.txt";
     private static String dateFormat = "dd.MM.yyyy";
 
-    public static void main(String[] args)
-    {
-        Date dateStart = new Date(2017, Calendar.JANUARY, 1);
-        Date dateFinish = new Date(2017, Calendar.DECEMBER, 31);
+    public static void main(String[] args) throws ParseException {
+
         ArrayList<Employee> staff = loadStaffFromFile();
 
-        staff.stream()
-                .map(Employee -> Employee.getWorkStart())
-                .filter(Employee -> Employee.after(dateStart) && Employee.before(dateFinish))
-                .forEach(System.out::println);
+        Date start = (new SimpleDateFormat(dateFormat)).parse("01.01.2017");
+        Date end = (new SimpleDateFormat(dateFormat)).parse("31.12.2017");
+
+        Optional<Employee> sort = staff.stream()
+                .filter(employee -> employee.getWorkStart().after(start) && employee.getWorkStart().before(end))
+                .max(Comparator.comparing(employee -> employee.getSalary()));
+        System.out.print("Максимальная зп в 2017: " + sort.get().getSalary());
 
     }
 
