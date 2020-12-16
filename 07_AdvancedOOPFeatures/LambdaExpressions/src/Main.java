@@ -17,14 +17,14 @@ public class Main
 
         ArrayList<Employee> staff = loadStaffFromFile();
 
-        Date start = (new SimpleDateFormat(dateFormat)).parse("01.01.2017");
-        Date end = (new SimpleDateFormat(dateFormat)).parse("31.12.2017");
-
         Optional<Employee> sort = staff.stream()
-                .filter(employee -> employee.getWorkStart().after(start) && employee.getWorkStart().before(end))
-                .max(Comparator.comparing(employee -> employee.getSalary()));
+                .filter(employee -> {
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(employee.getWorkStart());
+                    return calendar.get(Calendar.YEAR) == 2017;
+                })
+                .max(Comparator.comparing(Employee::getSalary));
         System.out.print("Максимальная зп в 2017: " + sort.get().getSalary());
-
     }
 
     private static ArrayList<Employee> loadStaffFromFile()
